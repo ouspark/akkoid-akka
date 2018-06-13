@@ -7,7 +7,7 @@ lazy val server = (project in file("server"))
     scalaVersion := Settings.versions.scala,
     scalacOptions ++= Settings.scalacOptions,
     libraryDependencies ++= Settings.jvmDependencies.value,
-    
+      libraryDependencies ++= Settings.jsDependencies.value,
     scalaJSProjects := Seq(client),
     pipelineStages in Assets := Seq(scalaJSPipeline),
     // triggers scalaJSPipeline when using compile or continuous compilation
@@ -17,7 +17,7 @@ lazy val server = (project in file("server"))
     // Compile the project before generating Eclipse files, so that generated .scala or .class files for Twirl templates are present
   //  EclipseKeys.preTasks := Seq(compile in Compile)
   )
-  .enablePlugins(SbtWeb, SbtTwirl, JavaAppPackaging)
+  .enablePlugins(SbtWeb, JavaAppPackaging)
   .dependsOn(sharedJVM)
 
 lazy val client = (project in file("client"))

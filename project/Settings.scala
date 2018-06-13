@@ -36,8 +36,8 @@ object Settings {
     */
   val sharedDependencies = Def.setting(Seq(
     "com.lihaoyi" %%% "autowire" % versions.autowire,
-    // https://mvnrepository.com/artifact/com.lihaoyi/upickle
-    "com.lihaoyi" %%% "upickle" % versions.upickle
+    "com.lihaoyi" %%% "upickle" % versions.upickle,
+    "com.lihaoyi" %%% "scalatags" % "0.6.7"
 
   ))
 
@@ -45,8 +45,7 @@ object Settings {
   val jvmDependencies = Def.setting(Seq(
     "com.typesafe.akka" %% "akka-http" % versions.akkaHttp,
     "com.typesafe.akka" %% "akka-stream" % versions.akkaVersioin,
-    "com.typesafe.akka" %% "akka-actor" % versions.akkaVersioin,
-    "com.vmunier" %% "scalajs-scripts" % versions.scalajsScripts
+    "com.typesafe.akka" %% "akka-actor" % versions.akkaVersioin
   ))
 
   /** Dependencies only used by the JS project (note the use of %%% instead of %%) */
@@ -56,6 +55,7 @@ object Settings {
 
   /** Dependencies for external JS libs that are bundled into a single .js file according to dependency order */
   val jsDependencies = Def.setting(Seq(
+    "org.webjars.npm" % "purecss" % "1.0.0"
 //    "org.webjars" % "jquery" % versions.jQuery / "jquery.js" minified "jquery.min.js",
 //    "org.webjars" % "bootstrap" % versions.bootstrap / "bootstrap.js" minified "bootstrap.min.js" dependsOn "jquery.js"
   ))
